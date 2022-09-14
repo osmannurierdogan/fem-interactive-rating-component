@@ -14,11 +14,11 @@
 
     <link rel="stylesheet" href="./dist/main.css" />
     <title>Frontend Mentor | Interactive rating component</title>
+    <script src="https://unpkg.com/vue@3" defer></script>
   </head>
   <body>
-    <!-- Rating state start -->
-    <main>
-      <article class="container">
+    <main id="app">
+      <article v-if="!isSubmitted" class="container">
         <figure class="container__icon">
           <img src="./images/icon-star.svg" alt="Rating Icon" />
         </figure>
@@ -32,55 +32,67 @@
           <button
             type="button"
             class="button button--rate container__rates-item"
+            @click="choice = 1"
           >
             1
           </button>
+
           <button
             type="button"
             class="button button--rate container__rates-item"
+            @click="choice = 2"
           >
             2
           </button>
           <button
             type="button"
             class="button button--rate container__rates-item"
+            @click="choice = 3"
           >
             3
           </button>
           <button
             type="button"
             class="button button--rate container__rates-item"
+            @click="choice = 4"
           >
             4
           </button>
           <button
             type="button"
             class="button button--rate container__rates-item"
+            @click="choice = 5"
           >
             5
           </button>
         </div>
-        <button class="button button--submit">Submit</button>
+        <button @click="isSubmitted = true" class="button button--submit">
+          Submit
+        </button>
       </article>
+      <div v-else class="container container--submit">
+        <div class="container--submit__icon">
+          <img src="./images/illustration-thank-you.svg" alt="Thank You Icon" />
+        </div>
+        <span class="container--submit__info">
+          You selected {{ getChoice }} out of 5
+        </span>
+        <h3 class="container--submit__title">Thank you!</h3>
+        <p class="container--submit__paragraph">
+          We appreciate you taking the time to give a rating. If you ever need
+          more support, don’t hesitate to get in touch!
+        </p>
+      </div>
     </main>
-
-    <!-- Rating state end -->
-
-    <!-- Thank you state start -->
-
-    You selected
-    <!-- Add rating here -->
-    out of 5 Thank you! We appreciate you taking the time to give a rating. If
-    you ever need more support, don’t hesitate to get in touch!
-
-    <!-- Thank you state end -->
-
     <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
+      >. Coded by
+      <a href="https://frontendmentor.io/profile/osmannurierdogan"
+        >Osman Nuri ERDOGAN</a
+      >.
     </div>
+    <script src="./js/app.js" defer></script>
   </body>
 </html>
-

@@ -2,58 +2,135 @@
 @import "./variables";
 
 .container {
+  width: 50%;
+  margin-inline: auto;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // flex-direction: column;
   background: linear-gradient(
-    to bottom right,
-    $color-neutral-dark-blue 25%,
-    $color-neutral-very-dark-blue 100%
+    -135deg,
+    $color-neutral-dark-blue 15%,
+    $color-neutral-very-dark-blue 180%
   );
-  background-color: $color-neutral-dark-blue;
-  color: $color-neutral-white;
-  padding: 2.4rem;
-  display: flex;
-  // align-items: flex-start;
-  flex-direction: column;
-  justify-content: center;
-  gap: 3.2rem;
+  // background-color: $color-neutral-dark-blue;
+  border-radius: 2rem;
+  padding: 2.6rem;
+  @include responsive(phone) {
+    width: 80%;
+  }
   &__icon {
+    & img {
+      border-radius: 100%;
+      padding: 1.5rem;
+      background-color: $color-neutral-dark-blue;
+      box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.15);
+    }
   }
   &__title {
+    font-size: 3.6rem;
+    margin-top: 2.4rem;
+    color: $color-neutral-white;
   }
   &__paragraph {
+    color: $color-neutral-light-gray;
+    font-size: $font-size-body;
+    margin: 1rem auto 3rem;
+    line-height: 1.5;
   }
   &__rates {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    &__item {
+    }
+  }
+  &--submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    // gap: 2.4rem;
+    text-align: center;
+    padding: 4rem 3rem;
+    &__icon {
+      // width: 100%;
+      margin-bottom: 2.4rem;
+    }
+    &__info {
+      // padding: 1rem;
+      background-color: $color-neutral-dark-blue;
+      color: $color-primary-orange;
+      // opacity: 0.75;
+      border-radius: 100px;
+      font-size: $font-size-body;
+      margin-bottom: 3.2rem;
+      padding: 1rem 2rem;
+      line-height: 1;
+      // vertical-align: middle;
+    }
+    &__title {
+      font-size: 3.2rem;
+      // margin-top: 2.4rem;
+      color: $color-neutral-white;
+      font-weight: $font-weight-regular;
+    }
+    &__paragraph {
+      color: $color-neutral-light-gray;
+      font-size: $font-size-body;
+      // margin: 1rem auto 3rem;
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
   }
 }
 
 .button {
-  outline: none;
   background: none;
   border: none;
-  text-transform: uppercase;
-  padding: 1rem;
-  font-size: $font-size-body;
-  font-weight: $font-weight-regular;
-  letter-spacing: 2px;
+  outline: none;
+  cursor: pointer;
   &--rate {
-    border-radius: 1000px;
-    padding: 1rem;
-    color: $color-neutral-medium-gray;
     background-color: $color-neutral-dark-blue;
-    box-shadow: 1rem 1rem 5rem rgba(0, 0, 0, 0.5);
+    color: $color-neutral-medium-gray;
+    font-size: 1.8rem;
+    padding: 1.5rem 2rem;
+    border-radius: 50%;
+    transition: all 0.3s;
+    &:focus {
+      background-color: $color-neutral-medium-gray;
+      color: $color-neutral-white;
+    }
+    &:hover {
+      background-color: $color-primary-orange;
+      color: $color-neutral-white;
+    }
   }
   &--submit {
     color: $color-neutral-white;
-    border-radius: 100px;
     background-color: $color-primary-orange;
+    width: 100%;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    border-radius: 100px;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: $font-weight-regular;
+    transition: all 0.3s;
+    &:hover {
+      color: $color-primary-orange;
+      background-color: $color-neutral-white;
+    }
   }
 }
 .attribution {
+  align-self: center;
   font-size: 11px;
   text-align: center;
+  visibility: hidden;
+  color: $color-neutral-white;
   & a {
-    color: hsl(228, 45%, 44%);
+    color: $color-primary-orange;
   }
 }

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+@import "./mixins";
 $font-family: "Overpass", sans-serif;
 $font-size-body: 1.5rem;
 $font-weight-regular: 400;
@@ -12,8 +13,18 @@ $color-neutral-medium-gray: hsl(216, 12%, 54%);
 $color-neutral-dark-blue: hsl(213, 19%, 18%);
 $color-neutral-very-dark-blue: hsl(216, 12%, 8%);
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
 html {
   font-size: 62.5%;
+  @include responsive(tab-port) {
+    font-size: 55%;
+  }
 }
 body {
   font-family: $font-family;
@@ -24,4 +35,3 @@ body {
   justify-content: center;
   flex-direction: column;
 }
-
